@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+      </script>
+      <script type="module">
+        import { createApp } from 'vue'
+
+        import Main from './main.js'
+      
+        createApp(Main).mount('#app')
+      </script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Niveles de poder de personajes</h1>
+
+    <div id="app">
+        <form id="search">
+          Search <input name="query" v-model="searchQuery">
+        </form>
+        <br>
+        <demo-grid
+          :data="gridData"
+          :columns="gridColumns"
+          :filter-key="searchQuery">
+        </demo-grid>
+      </div>
+</body>
+</html>
